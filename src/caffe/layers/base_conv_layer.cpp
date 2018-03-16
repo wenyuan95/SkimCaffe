@@ -406,7 +406,7 @@ void BaseConvolutionLayer<float>::WeightAlign()
 
     set<pair<int, unsigned long long> > inverseHist;
     for (map<unsigned long long, int>::iterator pattern = hist.begin(); pattern != hist.end(); ++pattern) {
-      inverseHist.insert(make_pair<int, unsigned long long>(pattern->second, pattern->first));
+      inverseHist.insert(make_pair<int, unsigned long long>(int(pattern->second), (unsigned long long)(pattern->first)));
     }
 
     fprintf(stderr, "total = %d\n", M*conv_in_channels_);
